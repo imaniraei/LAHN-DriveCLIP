@@ -27,7 +27,7 @@ Concordia University, Montreal, QC, Canada
 # Overview
 
 <p align="center">
-<img src="assets/teaser.png" width="100%">
+<img src="assets/pipeline.png" width="100%">
 </p>
 
 **LAHN-DriveCLIP** is a localization-aware vision-language framework designed for weakly supervised object localization in autonomous driving. The proposed framework extends the CLIP foundation model through parameter-efficient adaptation while preserving the powerful visual-semantic knowledge learned during large-scale pretraining.
@@ -43,7 +43,7 @@ Extensive experiments demonstrate that LAHN-DriveCLIP consistently outperforms p
 # Method
 
 <p align="center">
-<img src="assets/lahn_pipeline.png" width="100%">
+<img src="assets/LoRA.png" width="100%">
 </p>
 
 The proposed training pipeline consists of four tightly coupled components:
