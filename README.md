@@ -48,7 +48,6 @@ The proposed training pipeline consists of four tightly coupled components:
 
 The pretrained CLIP vision encoder and text encoder remain frozen during training. Instead, lightweight Low-Rank Adaptation (LoRA) modules are inserted into the transformer attention layers, allowing efficient adaptation with only a small number of trainable parameters.
 
----
 
 ### 2. Gaussian CAM Alignment
 
@@ -56,7 +55,6 @@ To introduce localization awareness without adding an object detector, LAHN-Driv
 
 Ground-truth bounding boxes are converted into Gaussian spatial targets, and the generated activation maps are aligned with these targets through a CAM alignment loss, encouraging spatially accurate visual attention while preserving CLIP's original contrastive learning paradigm.
 
----
 
 ### 3. CAM-Guided Hard Negative Mining
 
@@ -64,8 +62,6 @@ Rather than treating all negative image-text pairs equally, LAHN-DriveCLIP ident
 
 Image-text pairs producing similar activation regions receive larger weights during contrastive learning, enabling stronger discrimination between visually confusing driving scenes.
 
----
-   
 
 ### 4. Joint Optimization
 
@@ -225,8 +221,6 @@ Supported workflows include
 - Inference on custom images
 - Benchmark reproduction
 
----
-
 
 
 ---
@@ -249,4 +243,139 @@ Instead of updating hundreds of millions of pretrained parameters, only lightwei
 This design makes LAHN-DriveCLIP particularly suitable for large-scale autonomous driving applications.
 
 ---
+
+
+
+# Experimental Results
+
+The proposed **LAHN-DriveCLIP** is extensively evaluated on four autonomous driving benchmarks under both in-domain and cross-domain settings. Performance is assessed using two complementary tasks:
+
+- Cross-modal Retrieval
+- Weakly Supervised Localization
+
+Compared with pretrained CLIP and CLIP Surgery, LAHN-DriveCLIP consistently achieves superior localization accuracy while preserving efficient inference and parameter efficiency.
+
+---
+
+# Cross-modal Retrieval
+
+### Talk2Car (In-domain)
+
+<p align="center">
+<img src="assets/Talk2Car.jpg" width="95%">
+</p>
+
+The proposed LAHN-DriveCLIP achieves the highest retrieval accuracy on the Talk2Car benchmark for both image-to-text and text-to-image retrieval. By combining LoRA adaptation, Gaussian CAM Alignment, and CAM-guided Hard Negative Mining, the model significantly improves semantic alignment between visual scenes and natural language descriptions.
+
+---
+
+### BDD-X (Cross-domain)
+
+<p align="center">
+<img src="assets/BDD100k.jpg" width="95%">
+</p>
+
+To evaluate cross-domain generalization, the model is trained on Talk2Car and evaluated on the BDD-X dataset. LAHN-DriveCLIP consistently maintains strong retrieval performance under domain shift, demonstrating robust generalization across different autonomous driving environments.
+
+---
+
+# Weakly Supervised Localization
+
+<p align="center">
+<img src="assets/average.png" width="90%">
+</p>
+
+Average localization performance across all driving datasets.
+
+The proposed framework consistently achieves the highest performance in
+
+- EBPG
+- IoU@0.5
+- Point Accuracy
+
+while introducing only negligible computational overhead.
+
+---
+
+<p align="center">
+<img src="assets/iou_barplot.png" width="85%">
+</p>
+
+Comparison of localization performance using IoU@0.5.
+
+The proposed localization-aware adaptation strategy significantly improves spatial grounding over both pretrained CLIP and CLIP Surgery.
+
+---
+
+# LoRA Ablation Study
+
+The influence of LoRA configuration is analyzed using two different CLIP backbones.
+
+---
+
+### ViT-L/14 Backbone
+
+<p align="center">
+<img src="assets/Localization_Acc_IoU0.5_ViT-L14.png" width="70%">
+</p>
+
+Higher-capacity LoRA configurations achieve faster convergence and higher localization accuracy throughout training. The configuration **r = 16** and **α = 32** provides the best balance between localization accuracy and computational efficiency.
+
+---
+
+### RN50 Backbone
+
+<p align="center">
+<img src="assets/Localization_Acc_IoU0.5_RN50.png" width="70%">
+</p>
+
+The RN50 backbone exhibits similar trends, confirming that moderate LoRA ranks provide the most effective trade-off between efficiency and localization performance.
+
+---
+
+# Qualitative Results
+
+The qualitative examples presented in the paper demonstrate progressively improved activation maps from
+
+- CLIP
+- CLIP Surgery
+- CLIP + LoRA
+- CLIP + LoRA + CAM
+- **LAHN-DriveCLIP**
+
+The proposed framework produces more accurate and object-focused localization maps while suppressing irrelevant background regions, leading to better spatial grounding in complex autonomous driving scenes.
+
+---
+
+# Future Work
+
+Future work will extend LAHN-DriveCLIP from weakly supervised object localization toward weakly supervised semantic segmentation by leveraging Segment Anything Model (SAM) to generate pseudo masks from the refined CAM localization maps.
+
+---
+
+# Status
+
+🚧 **The manuscript is currently under review at Robotics and Autonomous Systems (RAS).**
+
+---
+
+# Citation
+
+If you find this work useful, please consider citing
+
+```bibtex
+@article{iraei2026lahndriveclip,
+  title={LAHN-DriveCLIP: Localization-Aware CLIP Adaptation with CAM-Guided Hard Negative Mining for Autonomous Driving},
+  author={Iraei, Iman and Ahmad, M. Omair and Swamy, M. N. S.},
+  journal={Submitted to Robotics and Autonomous Systems},
+  year={2026}
+}
+```
+
+---
+
+# License
+
+This project is released under the **MIT License**.
+
 
