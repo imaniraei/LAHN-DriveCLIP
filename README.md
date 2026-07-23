@@ -3,11 +3,9 @@ LAHN-DriveCLIP: Localization-Aware CLIP Adaptation with CAM-Guided Hard Negative
 </h1>
 
 <p align="center">
-
 <a href="https://imaniraei.github.io/">Iman Iraei</a>,
 <a href="https://users.encs.concordia.ca/~omair/">M. Omair Ahmad</a>,
 <a href="https://users.encs.concordia.ca/~swamy/">M. N. S. Swamy</a>
-
 </p>
 
 <p align="center">
