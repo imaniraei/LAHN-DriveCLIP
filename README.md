@@ -42,10 +42,6 @@ Extensive experiments demonstrate that LAHN-DriveCLIP consistently outperforms p
 
 # Method
 
-<p align="center">
-<img src="assets/LoRA.jpg" width="100%">
-</p>
-
 The proposed training pipeline consists of four tightly coupled components:
 
 ### 1. LoRA-based CLIP Adaptation
@@ -69,6 +65,7 @@ Rather than treating all negative image-text pairs equally, LAHN-DriveCLIP ident
 Image-text pairs producing similar activation regions receive larger weights during contrastive learning, enabling stronger discrimination between visually confusing driving scenes.
 
 ---
+   
 
 ### 4. Joint Optimization
 
@@ -230,29 +227,7 @@ Supported workflows include
 
 ---
 
-# Model Architecture
 
-<p align="center">
-<img src="assets/pipeline.png" width="100%">
-</p>
-
-The proposed LAHN-DriveCLIP framework consists of four major stages:
-
-1. **LoRA-based CLIP Adaptation**
-
-   Lightweight Low-Rank Adaptation (LoRA) modules are inserted into both the vision and text transformers while the original CLIP backbone remains frozen.
-
-2. **Gaussian CAM Alignment**
-
-   Gaussian spatial targets generated from bounding-box annotations supervise gScoreCAM activation maps, introducing localization awareness without requiring dense pixel-level annotations.
-
-3. **CAM-Guided Hard Negative Mining**
-
-   Spatially confusing image-text pairs are emphasized during contrastive learning based on CAM overlap, improving cross-modal discrimination.
-
-4. **Joint Optimization**
-
-   The localization loss and contrastive learning objective are jointly optimized while updating only LoRA parameters.
 
 ---
 
@@ -275,16 +250,3 @@ This design makes LAHN-DriveCLIP particularly suitable for large-scale autonomou
 
 ---
 
-# Supported Tasks
-
-The repository provides implementations for
-
-- Vision-language grounding
-- Cross-modal retrieval
-- Weakly supervised localization
-- gScoreCAM visualization
-- LoRA fine-tuning
-- Hard negative mining
-- Cross-domain evaluation
-
----
