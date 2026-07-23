@@ -15,7 +15,7 @@ Concordia University, Montreal, QC, Canada
 
 <p align="center">
 
-<a href="#"><img src="https://img.shields.io/badge/Paper-Robotics%20and%20Autonomous%20Systems-green"></a>
+<a href="#"><img src="https://img.shields.io/badge/Paper-RAS-green"></a>
 <a href="#overview"><img src="https://img.shields.io/badge/Overview-Method-blue"></a>
 <a href="#datasets"><img src="https://img.shields.io/badge/Datasets-4%20Benchmarks-orange"></a>
 <a href="#"><img src="https://img.shields.io/badge/Code-Coming%20Soon-red"></a>
