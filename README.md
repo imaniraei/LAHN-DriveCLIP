@@ -43,7 +43,7 @@ Extensive experiments demonstrate that LAHN-DriveCLIP consistently outperforms p
 # Method
 
 <p align="center">
-<img src="assets/LoRA.png" width="100%">
+<img src="assets/LoRA.jpg" width="100%">
 </p>
 
 The proposed training pipeline consists of four tightly coupled components:
