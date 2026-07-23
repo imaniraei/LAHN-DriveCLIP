@@ -123,3 +123,168 @@ The proposed framework is evaluated on four public autonomous driving datasets.
 - Gaussian CAM supervision
 - Spatially-aware hard negative mining
 - Efficient inference for autonomous driving applications
+
+
+
+
+
+---
+
+# Repository Structure
+
+```text
+LAHN-DriveCLIP/
+│
+├── assets/
+│   ├── pipeline.png
+│   ├── LoRA.jpg
+│   ├── Talk2Car.jpg
+│   ├── BDD100k.jpg
+│   ├── average.png
+│   ├── iou_barplot.png
+│   ├── Localization_Acc_IoU0.5_ViT-L14.png
+│   └── Localization_Acc_IoU0.5_RN50.png
+│
+├── configs/
+│
+├── datasets/
+│
+├── losses/
+│
+├── models/
+│
+├── notebooks/
+│
+├── outputs/
+│
+├── logs/
+│
+├── scripts/
+│
+├── utils/
+│
+├── README.md
+├── INSTALL.md
+├── DATASETS.md
+├── RUN.md
+├── requirements.txt
+├── LICENSE
+└── .gitignore
+```
+
+---
+
+# Installation
+
+Please follow the installation instructions provided in **INSTALL.md**.
+
+The installation guide includes
+
+- Environment setup
+- Python dependencies
+- CUDA compatibility
+- GPU requirements
+- HPC installation
+- Google Colab inference
+- Troubleshooting
+
+---
+
+# Data Preparation
+
+The complete dataset preparation procedure is described in **DATASETS.md**.
+
+The repository supports the following autonomous driving datasets
+
+| Dataset | Purpose |
+|----------|----------|
+| Talk2Car | Training & Evaluation |
+| BDD-X | Cross-domain Evaluation |
+| KITTI | Cross-domain Evaluation |
+| Udacity Self-Driving Car | Cross-domain Evaluation |
+
+The data preparation guide includes
+
+- Download links
+- Folder organization
+- Annotation format
+- Image preprocessing
+- Train / Validation split
+- Evaluation protocol
+
+---
+
+# Training and Evaluation
+
+Detailed instructions for training and evaluation are provided in **RUN.md**.
+
+Supported workflows include
+
+- Model training
+- Evaluation
+- Cross-modal retrieval
+- Weakly-supervised localization
+- Visualization using gScoreCAM
+- Inference on custom images
+- Benchmark reproduction
+
+---
+
+# Model Architecture
+
+<p align="center">
+<img src="assets/pipeline.png" width="100%">
+</p>
+
+The proposed LAHN-DriveCLIP framework consists of four major stages:
+
+1. **LoRA-based CLIP Adaptation**
+
+   Lightweight Low-Rank Adaptation (LoRA) modules are inserted into both the vision and text transformers while the original CLIP backbone remains frozen.
+
+2. **Gaussian CAM Alignment**
+
+   Gaussian spatial targets generated from bounding-box annotations supervise gScoreCAM activation maps, introducing localization awareness without requiring dense pixel-level annotations.
+
+3. **CAM-Guided Hard Negative Mining**
+
+   Spatially confusing image-text pairs are emphasized during contrastive learning based on CAM overlap, improving cross-modal discrimination.
+
+4. **Joint Optimization**
+
+   The localization loss and contrastive learning objective are jointly optimized while updating only LoRA parameters.
+
+---
+
+# LoRA Adaptation
+
+<p align="center">
+<img src="assets/LoRA.jpg" width="45%">
+</p>
+
+LAHN-DriveCLIP employs parameter-efficient Low-Rank Adaptation (LoRA) to adapt both the vision encoder and the text encoder of CLIP.
+
+Instead of updating hundreds of millions of pretrained parameters, only lightweight low-rank matrices are optimized, resulting in
+
+- lower GPU memory usage
+- faster convergence
+- improved generalization
+- negligible computational overhead
+
+This design makes LAHN-DriveCLIP particularly suitable for large-scale autonomous driving applications.
+
+---
+
+# Supported Tasks
+
+The repository provides implementations for
+
+- Vision-language grounding
+- Cross-modal retrieval
+- Weakly supervised localization
+- gScoreCAM visualization
+- LoRA fine-tuning
+- Hard negative mining
+- Cross-domain evaluation
+
+---
