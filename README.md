@@ -125,57 +125,18 @@ The proposed framework is evaluated on four public autonomous driving datasets.
 
 Please follow the installation instructions provided in <a href="INSTALL.md"><u>INSTALL.md</u></a>.
 
-The installation guide includes
-
-- Environment setup
-- Python dependencies
-- CUDA compatibility
-- GPU requirements
-- HPC installation
-- Google Colab inference
-- Troubleshooting
-
 ---
 
 # Data Preparation
 
 The complete dataset preparation procedure is described in <a href="DATASETS.md"><u>DATASETS.md</u></a>.
 
-The repository supports the following autonomous driving datasets
-
-| Dataset | Purpose |
-|----------|----------|
-| Talk2Car | Training & Evaluation |
-| BDD-X | Cross-domain Evaluation |
-| KITTI | Cross-domain Evaluation |
-| Udacity Self-Driving Car | Cross-domain Evaluation |
-
-The data preparation guide includes
-
-- Download links
-- Folder organization
-- Annotation format
-- Image preprocessing
-- Train / Validation split
-- Evaluation protocol
 
 ---
 
 # Training and Evaluation
 
 Detailed instructions for training and evaluation are provided in <a href="RUN.md"><u>RUN.md</u></a>.
-
-Supported workflows include
-
-- Model training
-- Evaluation
-- Cross-modal retrieval
-- Weakly-supervised localization
-- Visualization using gScoreCAM
-- Inference on custom images
-- Benchmark reproduction
-
-
 
 ---
 
