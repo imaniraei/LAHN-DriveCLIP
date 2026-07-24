@@ -211,17 +211,6 @@ Compared with pretrained CLIP and CLIP Surgery, LAHN-DriveCLIP consistently achi
 
 ---
 
-# Cross-modal Retrieval
-
-### Talk2Car (In-domain)
-
-<p align="center">
-<img src="assets/Talk2Car.jpg" width="95%">
-</p>
-
-The proposed LAHN-DriveCLIP achieves the highest retrieval accuracy on the Talk2Car benchmark for both image-to-text and text-to-image retrieval. By combining LoRA adaptation, Gaussian CAM Alignment, and CAM-guided Hard Negative Mining, the model significantly improves semantic alignment between visual scenes and natural language descriptions.
-
-
 
 
 
@@ -259,6 +248,23 @@ Localization performance comparison of CLIP (pretrained), CLIP Surgery, and the 
 
 
 ---
+
+
+
+
+# Cross-modal Retrieval
+
+### Talk2Car (In-domain)
+
+<p align="center">
+<img src="assets/Talk2Car.jpg" width="95%">
+</p>
+
+The proposed LAHN-DriveCLIP achieves the highest retrieval accuracy on the Talk2Car benchmark for both image-to-text and text-to-image retrieval. By combining LoRA adaptation, Gaussian CAM Alignment, and CAM-guided Hard Negative Mining, the model significantly improves semantic alignment between visual scenes and natural language descriptions.
+
+
+
+
 
 
 ### BDD-X (Cross-domain)
@@ -308,25 +314,6 @@ Higher-capacity LoRA configurations achieve faster convergence and higher locali
 
 ---
 
-# Qualitative Results
-
-The qualitative examples presented in the paper demonstrate progressively improved activation maps from
-
-- CLIP
-- CLIP Surgery
-- CLIP + LoRA
-- CLIP + LoRA + CAM
-- **LAHN-DriveCLIP**
-
-The proposed framework produces more accurate and object-focused localization maps while suppressing irrelevant background regions, leading to better spatial grounding in complex autonomous driving scenes.
-
----
-
-# Future Work
-
-Future work will extend LAHN-DriveCLIP from weakly supervised object localization toward weakly supervised semantic segmentation by leveraging Segment Anything Model (SAM) to generate pseudo masks from the refined CAM localization maps.
-
----
 
 # Status
 
