@@ -111,10 +111,10 @@ The proposed framework is evaluated on four public autonomous driving datasets.
 
 | Dataset | Purpose |
 |----------|---------|
-| [Talk2Car Dataset](https://talk2car.github.io/) | In-domain training and evaluation |
-| [BDD-X Dataset](https://bdd-x.github.io/) | Cross-domain retrieval and localization |
-| [KITTI Object Detection Benchmark](https://www.cvlibs.net/datasets/kitti/eval_object.php) | Cross-domain localization |
-| [Udacity Self-Driving Car Dataset](https://public.roboflow.com/object-detection/self-driving-car) | Cross-domain localization |
+| [Talk2Car](https://talk2car.github.io/) | In-domain training and evaluation |
+| [BDD-X](https://bdd-x.github.io/) | Cross-domain retrieval and localization |
+| [KITTI](https://www.cvlibs.net/datasets/kitti/eval_object.php) | Cross-domain localization |
+| [Udacity Self-Driving Car](https://public.roboflow.com/object-detection/self-driving-car) | Cross-domain localization |
 
 
 
