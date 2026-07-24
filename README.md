@@ -226,7 +226,7 @@ The proposed LAHN-DriveCLIP achieves the highest retrieval accuracy on the Talk2
 
 
 
-**Table 1.** Top-K Cross-modal retrieval accuracy comparison of CLIP (pretrained), CLIP Surgery, and the proposed LAHN-DriveCLIP method on Talk2Car and BDD-X datasets. Results are reported as mean±std.
+Top-K Cross-modal retrieval accuracy comparison of CLIP (pretrained), CLIP Surgery, and the proposed LAHN-DriveCLIP method on Talk2Car and BDD-X datasets. Results are reported as mean±std.
 
 | Method | Talk2Car — image→text — Top-1 | Talk2Car — image→text — Top-2 | Talk2Car — text→image — Top-1 | Talk2Car — text→image — Top-2 | BDD-X — image→text — Top-1 | BDD-X — image→text — Top-2 | BDD-X — text→image — Top-1 | BDD-X — text→image — Top-2 |
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -240,7 +240,7 @@ The proposed LAHN-DriveCLIP achieves the highest retrieval accuracy on the Talk2
 
 
 
-**Table 3.** Localization performance comparison of CLIP (pretrained), CLIP Surgery, and the proposed LAHN-DriveCLIP method across multiple driving datasets. Results are reported as mean±std. Computational statistics correspond to CLIP ViT-L/14 with 224×224 input resolution.
+Localization performance comparison of CLIP (pretrained), CLIP Surgery, and the proposed LAHN-DriveCLIP method across multiple driving datasets. Results are reported as mean±std. Computational statistics correspond to CLIP ViT-L/14 with 224×224 input resolution.
 
 | Dataset | Method | EBPG ↑ | IoU0.5 ↑ | Point Acc ↑ | Params (M) | FLOPs (G) | Inference Latency (ms) |
 |:---|:---|:---:|:---:|:---:|:---:|:---:|:---:|
