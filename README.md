@@ -88,19 +88,6 @@ During optimization, gradients update only the LoRA parameters while the origina
 
 ---
 
-# Datasets
-
-The proposed framework is evaluated on four public autonomous driving datasets.
-
-| Dataset | Purpose |
-|----------|----------|
-| Talk2Car | In-domain training and evaluation |
-| BDD-X | Cross-domain retrieval and localization |
-| KITTI | Cross-domain localization |
-| Udacity Self-Driving Car | Cross-domain localization |
-
-
-
 
 
 
