@@ -293,7 +293,6 @@ while introducing only negligible computational overhead.
 
 The influence of LoRA configuration is analyzed using two different CLIP backbones.
 
----
 
 <p align="center">
 <img src="assets/Localization_Acc_IoU0.5_ViT-L14.png" width="43%">
