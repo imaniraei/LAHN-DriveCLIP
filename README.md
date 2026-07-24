@@ -125,14 +125,12 @@ The proposed framework is evaluated on four public autonomous driving datasets.
 
 Please follow the installation instructions provided in <a href="INSTALL.md"><u>INSTALL.md</u></a>.
 
----
 
 # Data Preparation
 
 The complete dataset preparation procedure is described in <a href="DATASETS.md"><u>DATASETS.md</u></a>.
 
 
----
 
 # Training and Evaluation
 
