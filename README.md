@@ -77,14 +77,14 @@ During optimization, gradients update only the LoRA parameters while the origina
 
 # Key Features
 
-- 🚗 Localization-aware adaptation of CLIP for autonomous driving
-- 🧠 Parameter-efficient fine-tuning using LoRA
-- 🔥 Gaussian CAM Alignment for weakly supervised localization
-- 🎯 CAM-guided Hard Negative Mining
-- 🌍 Strong cross-domain generalization
-- ⚡ Lightweight training with frozen CLIP encoders
-- 📈 Improved cross-modal retrieval and localization performance
-- 🔍 Interpretable class activation maps
+-  Localization-aware adaptation of CLIP for autonomous driving
+-  Parameter-efficient fine-tuning using LoRA
+-  Gaussian CAM Alignment for weakly supervised localization
+-  CAM-guided Hard Negative Mining
+-  Strong cross-domain generalization
+-  Lightweight training with frozen CLIP encoders
+-  Improved cross-modal retrieval and localization performance
+-  Interpretable class activation maps
 
 ---
 
@@ -99,14 +99,7 @@ The proposed framework is evaluated on four public autonomous driving datasets.
 | KITTI | Cross-domain localization |
 | Udacity Self-Driving Car | Cross-domain localization |
 
-### Official Dataset Links
 
-<p>
-<a href="https://talk2car.github.io/"><img src="https://img.shields.io/badge/Talk2Car-Official%20Dataset-555555"></a>
-<a href="https://bdd-data.berkeley.edu/"><img src="https://img.shields.io/badge/BDD--X-Official%20Dataset-555555"></a>
-<a href="https://www.cvlibs.net/datasets/kitti/"><img src="https://img.shields.io/badge/KITTI-Vision%20Benchmark-555555"></a>
-<a href="https://public.roboflow.com/object-detection/self-driving-car"><img src="https://img.shields.io/badge/Udacity-Self--Driving%20Car-555555"></a>
-</p>
 
 ---
 
