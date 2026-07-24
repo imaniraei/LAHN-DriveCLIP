@@ -226,35 +226,6 @@ The proposed LAHN-DriveCLIP achieves the highest retrieval accuracy on the Talk2
 
 
 
-
-
-<div align="center">
-
-**Table 1.** Top-K Cross-modal retrieval accuracy comparison of CLIP (pretrained), CLIP Surgery, and the proposed LAHN-DriveCLIP method on Talk2Car and BDD-X datasets. Results are reported as mean±std.
-
-</div>
-
-<div style="overflow-x:auto;">
-
-| Method | Talk2Car |  |  |  | BDD-X |  |  |  |
-|:--|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
-|  | image→text Top-1 | Top-2 | text→image Top-1 | Top-2 | image→text Top-1 | Top-2 | text→image Top-1 | Top-2 |
-| CLIP [6] | 47.23±0.42 | 58.91±0.56 | 48.14±0.66 | 57.62±0.42 | 45.13±0.72 | 55.88±0.24 | 46.56±0.49 | 56.30±0.74 |
-| CLIP Surgery [15] | 78.42±0.51 | 88.87±0.43 | 78.76±0.59 | 88.91±0.48 | 77.91±0.64 | 87.15±0.38 | 78.08±0.52 | 88.26±0.46 |
-| **LAHN-DriveCLIP** | **81.36±0.64** | **92.48±0.38** | **82.27±0.47** | **93.66±0.73** | **79.28±0.15** | **89.02±0.41** | **79.34±0.49** | **90.26±0.93** |
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
 **Table 1.** Top-K Cross-modal retrieval accuracy comparison of CLIP (pretrained), CLIP Surgery, and the proposed LAHN-DriveCLIP method on Talk2Car and BDD-X datasets. Results are reported as mean±std.
 
 | Method | Talk2Car — image→text — Top-1 | Talk2Car — image→text — Top-2 | Talk2Car — text→image — Top-1 | Talk2Car — text→image — Top-2 | BDD-X — image→text — Top-1 | BDD-X — image→text — Top-2 | BDD-X — text→image — Top-1 | BDD-X — text→image — Top-2 |
@@ -264,6 +235,27 @@ The proposed LAHN-DriveCLIP achieves the highest retrieval accuracy on the Talk2
 | **LAHN&#8209;DriveCLIP** | **81.36±0.64** | **92.48±0.38** | **82.27±0.47** | **93.66±0.73** | **79.28±0.15** | **89.02±0.41** | **79.34±0.49** | **90.26±0.93** |
 
 
+
+
+
+
+
+**Table 3.** Localization performance comparison of CLIP (pretrained), CLIP Surgery, and the proposed LAHN-DriveCLIP method across multiple driving datasets. Results are reported as mean±std. Computational statistics correspond to CLIP ViT-L/14 with 224×224 input resolution.
+
+| Dataset | Method | EBPG ↑ | IoU0.5 ↑ | Point Acc ↑ | Params (M) | FLOPs (G) | Inference Latency (ms) |
+|:---|:---|:---:|:---:|:---:|:---:|:---:|:---:|
+| **Talk2Car** | CLIP | 41.20±5.12 | 28.45±2.34 | 47.13±6.21 | 304.3 | 188.6 | 24.1 |
+|  | CLIP&nbsp;Surgery | 49.86±4.21 | 39.74±2.02 | 56.48±5.03 | 304.7 | 191.2 | 26.8 |
+|  | **LAHN&#8209;DriveCLIP** | **61.93±3.58** | **57.74±1.55** | **68.02±4.11** | 306.8 | 189.8 | 24.6 |
+| **BDD-X** | CLIP | 40.72±5.03 | 26.94±2.21 | 45.80±6.02 | 304.7 | 188.6 | 24.1 |
+|  | CLIP&nbsp;Surgery | 48.95±4.10 | 36.88±1.94 | 54.72±4.88 | 304.3 | 191.2 | 26.8 |
+|  | **LAHN&#8209;DriveCLIP** | **58.27±3.41** | **49.82±1.76** | **63.47±4.03** | 306.8 | 189.8 | 24.6 |
+| **KITTI** | CLIP | 38.45±5.27 | 24.32±2.35 | 43.18±6.11 | 304.7 | 188.6 | 24.1 |
+|  | CLIP&nbsp;Surgery | 46.73±4.18 | 33.91±2.01 | 52.07±4.95 | 304.3 | 191.2 | 26.8 |
+|  | **LAHN&#8209;DriveCLIP** | **55.12±3.55** | **44.63±1.83** | **60.42±4.14** | 306.8 | 189.8 | 24.6 |
+| **Udacity** | CLIP | 39.18±5.14 | 25.87±2.29 | 44.02±6.07 | 304.7 | 188.6 | 24.1 |
+|  | CLIP&nbsp;Surgery | 47.84±4.16 | 35.96±1.97 | 53.61±4.91 | 304.3 | 191.2 | 26.8 |
+|  | **LAHN&#8209;DriveCLIP** | **57.09±3.49** | **47.38±1.81** | **62.44±4.09** | 306.8 | 189.8 | 24.6 |
 
 
 ---
