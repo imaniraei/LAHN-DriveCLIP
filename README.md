@@ -260,8 +260,6 @@ Localization performance comparison of CLIP (pretrained), CLIP Surgery, and the 
 <img src="assets/Talk2Car.jpg" width="95%">
 </p>
 
-The proposed LAHN-DriveCLIP achieves the highest retrieval accuracy on the Talk2Car benchmark for both image-to-text and text-to-image retrieval. By combining LoRA adaptation, Gaussian CAM Alignment, and CAM-guided Hard Negative Mining, the model significantly improves semantic alignment between visual scenes and natural language descriptions.
-
 
 
 
@@ -273,7 +271,6 @@ The proposed LAHN-DriveCLIP achieves the highest retrieval accuracy on the Talk2
 <img src="assets/BDD100k.jpg" width="95%">
 </p>
 
-To evaluate cross-domain generalization, the model is trained on Talk2Car and evaluated on the BDD-X dataset. LAHN-DriveCLIP consistently maintains strong retrieval performance under domain shift, demonstrating robust generalization across different autonomous driving environments.
 
 ---
 
