@@ -80,7 +80,24 @@ During optimization, gradients update only the LoRA parameters while the origina
 ---
 
 
+# LoRA Adaptation
 
+<p align="center">
+<img src="assets/LoRA.jpg" width="45%">
+</p>
+
+LAHN-DriveCLIP employs parameter-efficient Low-Rank Adaptation (LoRA) to adapt both the vision encoder and the text encoder of CLIP.
+
+Instead of updating hundreds of millions of pretrained parameters, only lightweight low-rank matrices are optimized, resulting in
+
+- lower GPU memory usage
+- faster convergence
+- improved generalization
+- negligible computational overhead
+
+This design makes LAHN-DriveCLIP particularly suitable for large-scale autonomous driving applications.
+
+---
 
 
 # Datasets
@@ -123,25 +140,6 @@ The complete dataset preparation procedure is described in <a href="DATASETS.md"
 # Training and Evaluation
 
 Detailed instructions for training and evaluation are provided in <a href="RUN.md"><u>RUN.md</u></a>.
-
----
-
-# LoRA Adaptation
-
-<p align="center">
-<img src="assets/LoRA.jpg" width="45%">
-</p>
-
-LAHN-DriveCLIP employs parameter-efficient Low-Rank Adaptation (LoRA) to adapt both the vision encoder and the text encoder of CLIP.
-
-Instead of updating hundreds of millions of pretrained parameters, only lightweight low-rank matrices are optimized, resulting in
-
-- lower GPU memory usage
-- faster convergence
-- improved generalization
-- negligible computational overhead
-
-This design makes LAHN-DriveCLIP particularly suitable for large-scale autonomous driving applications.
 
 ---
 
