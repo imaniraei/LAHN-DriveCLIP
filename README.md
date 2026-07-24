@@ -101,10 +101,12 @@ The proposed framework is evaluated on four public autonomous driving datasets.
 
 ### Official Dataset Links
 
-- Talk2Car Dataset
-- BDD-X Dataset
-- KITTI Vision Benchmark
-- Udacity Self-Driving Car Dataset
+<p>
+<a href="https://talk2car.github.io/"><img src="https://img.shields.io/badge/Talk2Car-Official%20Dataset-555555"></a>
+<a href="https://bdd-data.berkeley.edu/"><img src="https://img.shields.io/badge/BDD--X-Official%20Dataset-555555"></a>
+<a href="https://www.cvlibs.net/datasets/kitti/"><img src="https://img.shields.io/badge/KITTI-Vision%20Benchmark-555555"></a>
+<a href="https://public.roboflow.com/object-detection/self-driving-car"><img src="https://img.shields.io/badge/Udacity-Self--Driving%20Car-555555"></a>
+</p>
 
 ---
 
@@ -121,7 +123,7 @@ The proposed framework is evaluated on four public autonomous driving datasets.
 
 # Installation
 
-Please follow the installation instructions provided in **INSTALL.md**.
+Please follow the installation instructions provided in <a href="INSTALL.md"><u>INSTALL.md</u></a>.
 
 The installation guide includes
 
@@ -137,7 +139,7 @@ The installation guide includes
 
 # Data Preparation
 
-The complete dataset preparation procedure is described in **DATASETS.md**.
+The complete dataset preparation procedure is described in <a href="DATASETS.md"><u>DATASETS.md</u></a>.
 
 The repository supports the following autonomous driving datasets
 
@@ -161,7 +163,7 @@ The data preparation guide includes
 
 # Training and Evaluation
 
-Detailed instructions for training and evaluation are provided in **RUN.md**.
+Detailed instructions for training and evaluation are provided in <a href="RUN.md"><u>RUN.md</u></a>.
 
 Supported workflows include
 
@@ -219,7 +221,32 @@ Compared with pretrained CLIP and CLIP Surgery, LAHN-DriveCLIP consistently achi
 
 The proposed LAHN-DriveCLIP achieves the highest retrieval accuracy on the Talk2Car benchmark for both image-to-text and text-to-image retrieval. By combining LoRA adaptation, Gaussian CAM Alignment, and CAM-guided Hard Negative Mining, the model significantly improves semantic alignment between visual scenes and natural language descriptions.
 
+
+
+
+### Table 1. Top-K Cross-modal Retrieval Accuracy
+
+Results are reported as mean ± standard deviation.
+
+| Method | Talk2Car I→T Top-1 | Talk2Car I→T Top-2 | Talk2Car T→I Top-1 | Talk2Car T→I Top-2 | BDD-X I→T Top-1 | BDD-X I→T Top-2 | BDD-X T→I Top-1 | BDD-X T→I Top-2 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| CLIP | 47.23 ± 0.42 | 58.91 ± 0.56 | 48.14 ± 0.66 | 57.62 ± 0.42 | 45.13 ± 0.72 | 55.88 ± 0.24 | 46.56 ± 0.49 | 56.30 ± 0.74 |
+| CLIP Surgery | 78.42 ± 0.51 | 88.87 ± 0.43 | 78.76 ± 0.59 | 88.91 ± 0.48 | 77.91 ± 0.64 | 87.15 ± 0.38 | 78.08 ± 0.52 | 88.26 ± 0.46 |
+| **LAHN-DriveCLIP** | **81.36 ± 0.64** | **92.48 ± 0.38** | **82.27 ± 0.47** | **93.66 ± 0.73** | **79.28 ± 0.15** | **89.02 ± 0.41** | **79.34 ± 0.49** | **90.26 ± 0.93** |
+
+### Table 2. Retrieval Performance Improvement
+
+Absolute percentage-point improvement of LAHN-DriveCLIP over CLIP and CLIP Surgery.
+
+| Dataset | Comparison | I→T Top-1 | I→T Top-2 | T→I Top-1 | T→I Top-2 |
+|---|---|---:|---:|---:|---:|
+| Talk2Car | vs CLIP | +34.13 | +33.57 | +34.13 | +36.04 |
+| Talk2Car | vs CLIP Surgery | +2.94 | +3.61 | +3.51 | +4.75 |
+| BDD-X | vs CLIP | +34.15 | +33.14 | +32.78 | +33.96 |
+| BDD-X | vs CLIP Surgery | +1.37 | +1.87 | +1.26 | +2.00 |
+
 ---
+
 
 ### BDD-X (Cross-domain)
 
@@ -234,7 +261,7 @@ To evaluate cross-domain generalization, the model is trained on Talk2Car and ev
 # Weakly Supervised Localization
 
 <p align="center">
-<img src="assets/average.png" width="90%">
+<img src="assets/average.png" width="55%">
 </p>
 
 Average localization performance across all driving datasets.
@@ -250,7 +277,7 @@ while introducing only negligible computational overhead.
 ---
 
 <p align="center">
-<img src="assets/iou_barplot.png" width="85%">
+<img src="assets/iou_barplot.png" width="55%">
 </p>
 
 Comparison of localization performance using IoU@0.5.
@@ -265,23 +292,17 @@ The influence of LoRA configuration is analyzed using two different CLIP backbon
 
 ---
 
-### ViT-L/14 Backbone
-
 <p align="center">
-<img src="assets/Localization_Acc_IoU0.5_ViT-L14.png" width="70%">
+<img src="assets/Localization_Acc_IoU0.5_ViT-L14.png" width="43%">
+&nbsp;&nbsp;&nbsp;
+<img src="assets/Localization_Acc_IoU0.5_RN50.png" width="43%">
 </p>
 
-Higher-capacity LoRA configurations achieve faster convergence and higher localization accuracy throughout training. The configuration **r = 16** and **α = 32** provides the best balance between localization accuracy and computational efficiency.
-
----
-
-### RN50 Backbone
-
 <p align="center">
-<img src="assets/Localization_Acc_IoU0.5_RN50.png" width="70%">
+<b>Left:</b> ViT-L/14 backbone. &nbsp;&nbsp;&nbsp; <b>Right:</b> RN50 backbone.
 </p>
 
-The RN50 backbone exhibits similar trends, confirming that moderate LoRA ranks provide the most effective trade-off between efficiency and localization performance.
+Higher-capacity LoRA configurations achieve faster convergence and higher localization accuracy throughout training. For the ViT-L/14 backbone, the configuration **r = 16** and **α = 32** provides the best balance between localization accuracy and computational efficiency. The RN50 backbone exhibits a similar trend, confirming that moderate LoRA ranks provide an effective trade-off between efficiency and localization performance.
 
 ---
 
