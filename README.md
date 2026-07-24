@@ -228,79 +228,22 @@ The proposed LAHN-DriveCLIP achieves the highest retrieval accuracy on the Talk2
 
 
 
+<div align="center">
 
-<p align="center">
-  <strong>Table 1:</strong> Top-K Cross-modal retrieval accuracy comparison of CLIP (pretrained), CLIP Surgery, and the proposed LAHN-DriveCLIP method on Talk2Car and BDD-X datasets. Results are reported as mean±std.
-</p>
+**Table 1.** Top-K Cross-modal retrieval accuracy comparison of CLIP (pretrained), CLIP Surgery, and the proposed LAHN-DriveCLIP method on Talk2Car and BDD-X datasets. Results are reported as mean±std.
 
-<div style="width: 100%; overflow-x: auto;">
-<table style="min-width: 1200px; border-collapse: collapse; white-space: nowrap;">
-  <thead>
-    <tr>
-      <th rowspan="3" style="white-space: nowrap;">Method</th>
-      <th colspan="4">Talk2Car</th>
-      <th colspan="4">BDD-X</th>
-    </tr>
-    <tr>
-      <th colspan="2">image → text (%)</th>
-      <th colspan="2">text → image (%)</th>
-      <th colspan="2">image → text (%)</th>
-      <th colspan="2">text → image (%)</th>
-    </tr>
-    <tr>
-      <th>Top-1</th>
-      <th>Top-2</th>
-      <th>Top-1</th>
-      <th>Top-2</th>
-      <th>Top-1</th>
-      <th>Top-2</th>
-      <th>Top-1</th>
-      <th>Top-2</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td style="white-space: nowrap;">CLIP [6]</td>
-      <td style="white-space: nowrap;">47.23±0.42</td>
-      <td style="white-space: nowrap;">58.91±0.56</td>
-      <td style="white-space: nowrap;">48.14±0.66</td>
-      <td style="white-space: nowrap;">57.62±0.42</td>
-      <td style="white-space: nowrap;">45.13±0.72</td>
-      <td style="white-space: nowrap;">55.88±0.24</td>
-      <td style="white-space: nowrap;">46.56±0.49</td>
-      <td style="white-space: nowrap;">56.30±0.74</td>
-    </tr>
-
-    <tr>
-      <td style="white-space: nowrap;">CLIP Surgery [15]</td>
-      <td style="white-space: nowrap;">78.42±0.51</td>
-      <td style="white-space: nowrap;">88.87±0.43</td>
-      <td style="white-space: nowrap;">78.76±0.59</td>
-      <td style="white-space: nowrap;">88.91±0.48</td>
-      <td style="white-space: nowrap;">77.91±0.64</td>
-      <td style="white-space: nowrap;">87.15±0.38</td>
-      <td style="white-space: nowrap;">78.08±0.52</td>
-      <td style="white-space: nowrap;">88.26±0.46</td>
-    </tr>
-
-    <tr>
-      <td style="white-space: nowrap;"><strong>LAHN-DriveCLIP</strong></td>
-      <td style="white-space: nowrap;"><strong>81.36±0.64</strong></td>
-      <td style="white-space: nowrap;"><strong>92.48±0.38</strong></td>
-      <td style="white-space: nowrap;"><strong>82.27±0.47</strong></td>
-      <td style="white-space: nowrap;"><strong>93.66±0.73</strong></td>
-      <td style="white-space: nowrap;"><strong>79.28±0.15</strong></td>
-      <td style="white-space: nowrap;"><strong>89.02±0.41</strong></td>
-      <td style="white-space: nowrap;"><strong>79.34±0.49</strong></td>
-      <td style="white-space: nowrap;"><strong>90.26±0.93</strong></td>
-    </tr>
-  </tbody>
-</table>
 </div>
 
+<div style="overflow-x:auto;">
 
+| Method | Talk2Car |  |  |  | BDD-X |  |  |  |
+|:--|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+|  | image→text Top-1 | Top-2 | text→image Top-1 | Top-2 | image→text Top-1 | Top-2 | text→image Top-1 | Top-2 |
+| CLIP [6] | 47.23±0.42 | 58.91±0.56 | 48.14±0.66 | 57.62±0.42 | 45.13±0.72 | 55.88±0.24 | 46.56±0.49 | 56.30±0.74 |
+| CLIP Surgery [15] | 78.42±0.51 | 88.87±0.43 | 78.76±0.59 | 88.91±0.48 | 77.91±0.64 | 87.15±0.38 | 78.08±0.52 | 88.26±0.46 |
+| **LAHN-DriveCLIP** | **81.36±0.64** | **92.48±0.38** | **82.27±0.47** | **93.66±0.73** | **79.28±0.15** | **89.02±0.41** | **79.34±0.49** | **90.26±0.93** |
 
+</div>
 
 ---
 
