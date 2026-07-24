@@ -289,16 +289,6 @@ while introducing only negligible computational overhead.
 
 ---
 
-<p align="center">
-<img src="assets/iou_barplot.png" width="55%">
-</p>
-
-Comparison of localization performance using IoU@0.5.
-
-The proposed localization-aware adaptation strategy significantly improves spatial grounding over both pretrained CLIP and CLIP Surgery.
-
----
-
 # LoRA Ablation Study
 
 The influence of LoRA configuration is analyzed using two different CLIP backbones.
