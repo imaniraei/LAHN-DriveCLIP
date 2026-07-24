@@ -224,62 +224,80 @@ The proposed LAHN-DriveCLIP achieves the highest retrieval accuracy on the Talk2
 
 
 
-<div align="center">
 
-### Table 1. Top-K Cross-modal Retrieval Accuracy
 
-</div>
 
-<div style="overflow-x:auto; width:100%;">
 
-| Method | Talk2Car Image→Text Top-1 | Top-2 | Talk2Car Text→Image Top-1 | Top-2 | BDD-X Image→Text Top-1 | Top-2 | BDD-X Text→Image Top-1 | Top-2 |
-|:--|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
-| CLIP | 47.23±0.42 | 58.91±0.56 | 48.14±0.66 | 57.62±0.42 | 45.13±0.72 | 55.88±0.24 | 46.56±0.49 | 56.30±0.74 |
-| CLIP Surgery | 78.42±0.51 | 88.87±0.43 | 78.76±0.59 | 88.91±0.48 | 77.91±0.64 | 87.15±0.38 | 78.08±0.52 | 88.26±0.46 |
-| **LAHN-DriveCLIP** | **81.36±0.64** | **92.48±0.38** | **82.27±0.47** | **93.66±0.73** | **79.28±0.15** | **89.02±0.41** | **79.34±0.49** | **90.26±0.93** |
-
-</div>
 
 <p align="center">
-<b>Table 1.</b> Top-K cross-modal retrieval accuracy comparison of CLIP, CLIP Surgery, and the proposed <b>LAHN-DriveCLIP</b> on the Talk2Car and BDD-X datasets. Results are reported as mean ± std.
+  <strong>Table 1:</strong> Top-K Cross-modal retrieval accuracy comparison of CLIP (pretrained), CLIP Surgery, and the proposed LAHN-DriveCLIP method on Talk2Car and BDD-X datasets. Results are reported as mean±std.
 </p>
 
+<div style="width: 100%; overflow-x: auto;">
+<table style="min-width: 1200px; border-collapse: collapse; white-space: nowrap;">
+  <thead>
+    <tr>
+      <th rowspan="3" style="white-space: nowrap;">Method</th>
+      <th colspan="4">Talk2Car</th>
+      <th colspan="4">BDD-X</th>
+    </tr>
+    <tr>
+      <th colspan="2">image → text (%)</th>
+      <th colspan="2">text → image (%)</th>
+      <th colspan="2">image → text (%)</th>
+      <th colspan="2">text → image (%)</th>
+    </tr>
+    <tr>
+      <th>Top-1</th>
+      <th>Top-2</th>
+      <th>Top-1</th>
+      <th>Top-2</th>
+      <th>Top-1</th>
+      <th>Top-2</th>
+      <th>Top-1</th>
+      <th>Top-2</th>
+    </tr>
+  </thead>
 
+  <tbody>
+    <tr>
+      <td style="white-space: nowrap;">CLIP [6]</td>
+      <td style="white-space: nowrap;">47.23±0.42</td>
+      <td style="white-space: nowrap;">58.91±0.56</td>
+      <td style="white-space: nowrap;">48.14±0.66</td>
+      <td style="white-space: nowrap;">57.62±0.42</td>
+      <td style="white-space: nowrap;">45.13±0.72</td>
+      <td style="white-space: nowrap;">55.88±0.24</td>
+      <td style="white-space: nowrap;">46.56±0.49</td>
+      <td style="white-space: nowrap;">56.30±0.74</td>
+    </tr>
 
+    <tr>
+      <td style="white-space: nowrap;">CLIP Surgery [15]</td>
+      <td style="white-space: nowrap;">78.42±0.51</td>
+      <td style="white-space: nowrap;">88.87±0.43</td>
+      <td style="white-space: nowrap;">78.76±0.59</td>
+      <td style="white-space: nowrap;">88.91±0.48</td>
+      <td style="white-space: nowrap;">77.91±0.64</td>
+      <td style="white-space: nowrap;">87.15±0.38</td>
+      <td style="white-space: nowrap;">78.08±0.52</td>
+      <td style="white-space: nowrap;">88.26±0.46</td>
+    </tr>
 
-
-
-
-<div align="center">
-
-### Table 3. Weakly Supervised Localization Performance
-
+    <tr>
+      <td style="white-space: nowrap;"><strong>LAHN-DriveCLIP</strong></td>
+      <td style="white-space: nowrap;"><strong>81.36±0.64</strong></td>
+      <td style="white-space: nowrap;"><strong>92.48±0.38</strong></td>
+      <td style="white-space: nowrap;"><strong>82.27±0.47</strong></td>
+      <td style="white-space: nowrap;"><strong>93.66±0.73</strong></td>
+      <td style="white-space: nowrap;"><strong>79.28±0.15</strong></td>
+      <td style="white-space: nowrap;"><strong>89.02±0.41</strong></td>
+      <td style="white-space: nowrap;"><strong>79.34±0.49</strong></td>
+      <td style="white-space: nowrap;"><strong>90.26±0.93</strong></td>
+    </tr>
+  </tbody>
+</table>
 </div>
-
-<div style="overflow-x:auto; width:100%;">
-
-| Dataset | Method | EBPG ↑ | IoU@0.5 ↑ | Point Acc ↑ | Params (M) | FLOPs (G) | Latency (ms) |
-|:--|:--|:--:|:--:|:--:|:--:|:--:|:--:|
-| Talk2Car | CLIP | 41.20±5.12 | 28.45±2.34 | 47.13±6.21 | 304.3 | 188.6 | 24.1 |
-|  | CLIP Surgery | 49.86±4.21 | 39.74±2.02 | 56.48±5.03 | 304.7 | 191.2 | 26.8 |
-|  | **LAHN-DriveCLIP** | **61.93±3.58** | **57.74±1.55** | **68.02±4.11** | **306.8** | **189.8** | **24.6** |
-| BDD-X | CLIP | 40.72±5.03 | 26.94±2.21 | 45.80±6.02 | 304.7 | 188.6 | 24.1 |
-|  | CLIP Surgery | 48.95±4.10 | 36.88±1.94 | 54.72±4.88 | 304.3 | 191.2 | 26.8 |
-|  | **LAHN-DriveCLIP** | **58.27±3.41** | **49.82±1.76** | **63.47±4.03** | **306.8** | **189.8** | **24.6** |
-| KITTI | CLIP | 38.45±5.27 | 24.32±2.35 | 43.18±6.11 | 304.7 | 188.6 | 24.1 |
-|  | CLIP Surgery | 46.73±4.18 | 33.91±2.01 | 52.07±4.95 | 304.3 | 191.2 | 26.8 |
-|  | **LAHN-DriveCLIP** | *(ادامه را دقیقاً از Table 3 مقاله کپی کن)* | | | | | |
-| Udacity | CLIP | *(از مقاله)* | | | | | |
-|  | CLIP Surgery | *(از مقاله)* | | | | | |
-|  | **LAHN-DriveCLIP** | *(از مقاله)* | | | | | |
-
-</div>
-
-<p align="center">
-<b>Table 3.</b> Weakly supervised localization performance comparison of CLIP, CLIP Surgery, and the proposed <b>LAHN-DriveCLIP</b> across four autonomous driving datasets. Results are reported as mean ± std.
-</p>
-
-
 
 
 
