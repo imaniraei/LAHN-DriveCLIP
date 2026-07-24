@@ -245,6 +245,44 @@ The proposed LAHN-DriveCLIP achieves the highest retrieval accuracy on the Talk2
 
 </div>
 
+
+
+
+
+
+
+
+
+
+
+<div align="center">
+
+**Table 3.** Localization performance comparison of CLIP (pretrained), CLIP Surgery, and the proposed LAHN-DriveCLIP method across multiple driving datasets. Results are reported as mean±std. Computational statistics correspond to CLIP ViT-L/14 with 224×224 input resolution.
+
+</div>
+
+<div style="overflow-x:auto;">
+
+| Dataset | Method | EBPG ↑ | IoU0.5 ↑ | Point Acc ↑ | Params (M) | FLOPs (G) | Inference Latency (ms) |
+|:--|:--|:--:|:--:|:--:|:--:|:--:|:--:|
+| **Talk2Car** | CLIP [6] | 41.20±5.12 | 28.45±2.34 | 47.13±6.21 | 304.3 | 188.6 | 24.1 |
+|  | CLIP Surgery [15] | 49.86±4.21 | 39.74±2.02 | 56.48±5.03 | 304.7 | 191.2 | 26.8 |
+|  | **LAHN-DriveCLIP** | **61.93±3.58** | **57.74±1.55** | **68.02±4.11** | **306.8** | **189.8** | **24.6** |
+| **BDD-X** | CLIP [6] | 40.72±5.03 | 26.94±2.21 | 45.80±6.02 | 304.7 | 188.6 | 24.1 |
+|  | CLIP Surgery [15] | 48.95±4.10 | 36.88±1.94 | 54.72±4.88 | 304.3 | 191.2 | 26.8 |
+|  | **LAHN-DriveCLIP** | **58.27±3.41** | **49.82±1.76** | **63.47±4.03** | **306.8** | **189.8** | **24.6** |
+| **KITTI** | CLIP [6] | 38.45±5.27 | 24.32±2.35 | 43.18±6.11 | 304.7 | 188.6 | 24.1 |
+|  | CLIP Surgery [15] | 46.73±4.18 | 33.91±2.01 | 52.07±4.95 | 304.3 | 191.2 | 26.8 |
+|  | **LAHN-DriveCLIP** | **55.12±3.55** | **44.63±1.83** | **60.42±4.14** | **306.8** | **189.8** | **24.6** |
+| **Udacity** | CLIP [6] | 39.18±5.14 | 25.87±2.29 | 44.02±6.07 | 304.7 | 188.6 | 24.1 |
+|  | CLIP Surgery [15] | 47.84±4.16 | 35.96±1.97 | 53.61±4.91 | 304.3 | 191.2 | 26.8 |
+|  | **LAHN-DriveCLIP** | **57.09±3.49** | **47.38±1.81** | **62.44±4.09** | **306.8** | **189.8** | **24.6** |
+
+</div>
+
+
+
+
 ---
 
 
