@@ -30,7 +30,6 @@ Concordia University, Montreal, QC, Canada
 <img src="assets/pipeline.png" width="100%">
 </p>
 
----
 
 # Method
 
