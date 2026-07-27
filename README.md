@@ -283,3 +283,165 @@ If you find this work useful, please consider citing
 This project is released under the **MIT License**.
 
 
+-------------------------------------
+
+
+
+# LAHN-DriveCLIP
+
+**Localization-Aware Hard-Negative CLIP Adaptation for Autonomous Driving**
+
+An HPC-oriented implementation for LoRA-based CLIP adaptation, cross-modal retrieval, and text-guided localization in autonomous-driving scenes.
+
+The modular organization is inspired by the research-code style of MedCLIP-SAM, but this project addresses a different task and does not use SAM.
+
+## Capabilities
+
+- LoRA adapters in both the vision and text encoders
+- Frozen pretrained CLIP parameters during fine-tuning
+- Talk2Car in-domain retrieval
+- BDD-X cross-domain retrieval
+- Image-to-text and text-to-image Top-1/Top-2
+- gScoreCAM localization
+- EBPG, mean IoU, IoU@0.5 success, and Point Accuracy
+- JSONL custom-dataset interface
+- SLURM scripts for HPC
+
+## Why the Colab demo clones the repository
+
+The clone is required because the notebook imports the model, LoRA, metrics, and localization code from this repository. In MedCLIP-SAM, changing directory to `MedCLIP-SAM/saliency_maps` serves the same purpose: the demo depends on code stored in that folder. citeturn324880view0turn817633view0
+
+## Structure
+
+```text
+LAHN-DriveCLIP/
+├── lahn_driveclip/
+│   ├── data/
+│   ├── localization/
+│   ├── losses/
+│   ├── metrics/
+│   ├── models/
+│   └── utils/
+├── configs/
+├── notebooks/
+├── scripts/slurm/
+├── tools/
+├── train.py
+├── evaluate_retrieval.py
+├── evaluate_localization.py
+└── demo.py
+```
+
+## Dataset protocol
+
+| Dataset | Use |
+|---|---|
+| Talk2Car | LoRA training and in-domain retrieval |
+| BDD-X | Cross-domain retrieval and localization |
+| KITTI | Localization |
+| nuScenes | Localization |
+| Udacity Self-Driving Car | Localization |
+
+Talk2Car localization is also supported when its referring-expression box is included.
+
+## Manifest format
+
+```json
+{"sample_id":"001","image_path":"/data/a.jpg","text":"the car on the left","bbox_xyxy":[10,20,100,150],"split":"test","dataset":"talk2car","metadata":{}}
+```
+
+## HPC installation
+
+```bash
+git clone https://github.com/imaniraei/LAHN-DriveCLIP.git
+cd LAHN-DriveCLIP
+conda env create -f environment.yml
+conda activate lahn-driveclip
+bash scripts/setup_gscorecam.sh
+pytest -q
+```
+
+OpenCLIP exposes separate image and text encoding paths, which this implementation uses for bidirectional retrieval. citeturn975572search0turn975572search15
+
+## Check the LoRA targets
+
+```bash
+python tools/inspect_model.py --model-name ViT-B-16 --pretrained openai
+```
+
+The default YAML targets attention output projections and MLP projections in both transformer encoders. All original CLIP parameters are frozen before LoRA modules are inserted.
+
+## Build Talk2Car manifests
+
+```bash
+python tools/build_manifest.py talk2car   --json /data/talk2car/commands_train.json   --image-root /data/talk2car/images   --output /data/manifests/talk2car_train.jsonl   --split train
+```
+
+Talk2Car annotation releases may differ in key names. Inspect the generated JSONL before training.
+
+## Build BDD-X manifests
+
+```bash
+python tools/build_manifest.py bddx   --csv /data/bddx/BDD-X-Annotations_v1.csv   --split-file /data/bddx/train.txt   --image-root /data/bddx/representative_frames   --frame-template '{video_id}.jpg'   --output /data/manifests/bddx_train.jsonl   --split train
+```
+
+BDD-X annotations are video/segment-level. You must define and document how each representative frame is selected and ensure that the frame corresponds to the annotation.
+
+## Build KITTI/nuScenes/Udacity localization manifests
+
+Prepare a CSV:
+
+```text
+image_path,text,x1,y1,x2,y2,sample_id
+```
+
+Then:
+
+```bash
+python tools/build_manifest.py localization_csv   --csv /data/kitti/prompts_boxes.csv   --dataset kitti   --split test   --output /data/manifests/kitti_localization.jsonl
+```
+
+## Train
+
+Edit paths in `configs/talk2car_lora.yaml`:
+
+```bash
+python train.py --config configs/talk2car_lora.yaml
+```
+
+HPC:
+
+```bash
+sbatch scripts/slurm/train_lora.sbatch
+```
+
+## Retrieval evaluation
+
+```bash
+python evaluate_retrieval.py   --config configs/talk2car_lora.yaml   --checkpoint outputs/talk2car_lora/last.pt   --output outputs/talk2car_retrieval.json
+```
+
+```bash
+python evaluate_retrieval.py   --config configs/bddx_cross_domain.yaml   --checkpoint outputs/talk2car_lora/last.pt   --output outputs/bddx_cross_domain_retrieval.json
+```
+
+## Localization evaluation
+
+```bash
+python evaluate_localization.py   --config configs/kitti_localization.yaml   --checkpoint outputs/talk2car_lora/last.pt   --method gscorecam   --gscorecam-path gScoreCAM   --output outputs/kitti_localization.json
+```
+
+## Scientific cautions
+
+- The current retrieval evaluator assumes one correct text per image and uses the diagonal as ground truth. If several captions are valid for one image, create a multi-positive evaluator.
+- For KITTI and Udacity, textual prompts are not naturally equivalent to Talk2Car expressions. Prompt-generation rules must be reproducible.
+- Fix the saliency threshold before final reporting.
+- Validate gScoreCAM compatibility against the exact upstream commit used.
+- Save the OpenCLIP version, LoRA targets, rank, alpha, seed, and dataset manifests.
+
+## Third-party code
+
+gScoreCAM is cloned as an external dependency rather than copied into this repository. MedCLIP-SAM likewise acknowledges OpenCLIP and gScoreCAM as external projects. citeturn324880view0
+
+
+
