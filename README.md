@@ -112,18 +112,6 @@ The proposed framework is evaluated on four public autonomous driving datasets.
 | [Udacity Self-Driving Car](https://public.roboflow.com/object-detection/self-driving-car) | Cross-domain localization |
 
 
-
----
-
-# Highlights
-
-- Localization-aware CLIP adaptation
-- Weakly supervised vision-language grounding
-- Frozen CLIP backbone with LoRA adaptation
-- Gaussian CAM supervision
-- Spatially-aware hard negative mining
-- Efficient inference for autonomous driving applications
-
 ---
 
 # Installation
