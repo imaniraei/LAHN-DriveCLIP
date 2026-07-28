@@ -373,17 +373,7 @@ python evaluate_retrieval.py   --config configs/bddx_cross_domain.yaml   --check
 python evaluate_localization.py   --config configs/kitti_localization.yaml   --checkpoint outputs/talk2car_lora/last.pt   --method gscorecam   --gscorecam-path gScoreCAM   --output outputs/kitti_localization.json
 ```
 
-## Scientific cautions
 
-- The current retrieval evaluator assumes one correct text per image and uses the diagonal as ground truth. If several captions are valid for one image, create a multi-positive evaluator.
-- For KITTI and Udacity, textual prompts are not naturally equivalent to Talk2Car expressions. Prompt-generation rules must be reproducible.
-- Fix the saliency threshold before final reporting.
-- Validate gScoreCAM compatibility against the exact upstream commit used.
-- Save the OpenCLIP version, LoRA targets, rank, alpha, seed, and dataset manifests.
-
-## Third-party code
-
-gScoreCAM is cloned as an external dependency rather than copied into this repository. MedCLIP-SAM likewise acknowledges OpenCLIP and gScoreCAM as external projects. citeturn324880view0
 
 
 
