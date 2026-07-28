@@ -1,0 +1,34 @@
+seed: 42
+model:
+  name: ViT-B-16
+  pretrained: openai
+lora:
+  enabled: true
+  rank: 8
+  alpha: 16
+  dropout: 0.05
+  train_logit_scale: false
+  target_patterns:
+    - '^visual\.transformer\.resblocks\..*\.(attn\.out_proj|mlp\.c_fc|mlp\.c_proj)$'
+    - '^transformer\.resblocks\..*\.(attn\.out_proj|mlp\.c_fc|mlp\.c_proj)$'
+data:
+  train_manifest: /path/to/manifests/talk2car_train.jsonl
+  eval_manifest: /path/to/manifests/talk2car_test.jsonl
+  localization_manifest: /path/to/manifests/kitti_localization.jsonl
+  image_root: null
+training:
+  batch_size: 64
+  num_workers: 8
+  epochs: 20
+  learning_rate: 0.0001
+  weight_decay: 0.01
+  grad_clip: 1.0
+  log_every: 20
+  output_dir: outputs/talk2car_lora
+evaluation:
+  batch_size: 128
+  num_workers: 8
+localization:
+  cam_version: gscorecam
+  topk_channels: 300
+  threshold_ratio: 0.5
